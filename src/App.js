@@ -53,7 +53,12 @@ class App extends Component {
 
   render() {
     return (
-      <Router />
+      <Router
+        loggedInStatus={ this.state.isLoggedIn }
+        handleLogin={ this._handleLogin }
+        handleLogout={ this._handleLogout }
+        user={ this.state.user }
+      />
     );
   }
 }

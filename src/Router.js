@@ -4,12 +4,42 @@ import Home from './views/Home';
 import Login from './views/Login';
 import SignUp from './views/SignUp';
 
-const Router = () => {
+const Router = ({ loggedInStatus, handleLogin, handleLogout, user }) => {
   return (
     <Routes>
-      <Route exact path='/' element={<Home />} />
-      <Route exact path='/login' element={<Login />} />
-      <Route exact path='/signup'  element={<SignUp />} />
+
+      <Route
+        exact
+        path='/'
+        element={
+          <Home
+            loggedInStatus={ loggedInStatus }
+            handleLogout={ handleLogout }
+            user={ user }
+          />
+        }
+      />
+
+      <Route
+        path='/login'
+        element={
+          <Login
+            loggedInStatus={ loggedInStatus }
+            handleLogin={ handleLogin }
+          />
+        }
+      />
+
+      <Route
+        path='/signup'
+        element={
+          <SignUp
+            loggedInStatus={ loggedInStatus }
+            handleLogin={ handleLogin }
+          />
+        }
+      />
+
     </Routes>
   );
 }
